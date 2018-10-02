@@ -25,7 +25,9 @@ class CreatureList extends Component {
                             <h3>Actions</h3>
                             <ul>
                                 <li><b>Multiattack:</b>Artorias makes three greatsword attacks</li>
-                                <li><b>Greatsword:</b></li>
+                                <li><b>Greatsword:</b>Melee weapon attack: +10 to hit, reach 5ft, Hit: 11 (2d6+4) slashing damage. plus 18 (4d8) necrotic damage.</li>
+                                <li><b>Deeper Corruption (1/day):</b>Artorias can now allow the corruption of the Abyss to seep deeper into his bones, making him stronger, faster, and tougher at the price of his sanity.
+                                When Artorias's hit points drop to 70</li>
                             </ul>
                         </div>
                     </body>
@@ -38,3 +40,5 @@ class CreatureList extends Component {
         )
     }
 }
+
+export default CreatureList
