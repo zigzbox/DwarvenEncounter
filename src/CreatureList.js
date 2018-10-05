@@ -21,16 +21,16 @@ class CreatureList extends Component {
                                 <div>{e.strength}</div><div>{e.dexterity}</div><div>{e.constitution}</div><div>{e.intelligence}</div><div>{e.wisdom}</div><div>{e.charisma}</div>
                             </div>
                             <div>
-                                <div>skills</div>
-                                <div>skills</div>
-                                <div>skills</div>
-                                <div>skills</div>
+                                <div>{e.skills}</div>
+                                <div>{e.senses}</div>
+                                <div>{e.languages}</div>
+                                <div>{e.challenge_rating}</div>
                             </div>
-                            <div>keen sight and senses</div>
+                            <div>{e.special_abilities}</div>
                             <div>
                                 <h3>Actions</h3>
                                 <div>
-                                    list of actions
+                                    {e.actions}
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,11 @@ class CreatureList extends Component {
                 <header>
 
                 </header>
+                <div>
+                    
 
+
+                </div>
             </div>
 
 
