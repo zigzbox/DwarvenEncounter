@@ -16459,3 +16459,6 @@ export const creatureArray = [{
 	}],
 	"url": "http://www.dnd5eapi.co/api/monsters/325"
 }]
+
+
+export default creatureArray

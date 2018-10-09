@@ -28,3 +28,5 @@ class Encounter extends Component{
         )
     }
 }
+
+export default Encounter

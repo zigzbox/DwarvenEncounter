@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import creatureArray from './5e-SRD-Monsters'
 
 class CreatureList extends Component {
+    state = {
+        
+    }
+
+
+
+
     renderCreatures = () => {
-        return creatureArray.map(
+        const Creatures = creatureArray.map(
             (e, i) => {
                 return (
                     <div key={i}>
@@ -36,6 +43,10 @@ class CreatureList extends Component {
                         </div>
                     </div>
                 )
+                this.setState({
+                    Creatures
+                })
+                return Creatures
             }
         )
     }
@@ -47,7 +58,7 @@ class CreatureList extends Component {
                 </header>
                 <div>
                     
-
+                    {this.state.Creatures}
 
                 </div>
             </div>
