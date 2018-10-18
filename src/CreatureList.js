@@ -2,7 +2,60 @@ import React, { Component } from 'react';
 import creatureArray from './5e-SRD-Monsters'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './index.css'
+
 class CreatureList extends Component {
+
+
+
+    renderSpecialAbilities = () => {
+        if (this.state.dataObject.special_abilities) {
+            const specialAbilities = this.state.dataObject.special_abilities.map((f, i) => {
+                return (
+                   <div>
+                       <div><b>{f.name}</b></div>
+                       <div>{f.desc}</div>
+                       <div>Attack Bonus: {f.attack_bonus}</div>
+                   </div>
+                )
+
+            })
+            return specialAbilities
+        }
+    }
+
+    renderActions = () => {
+        if (this.state.dataObject.actions) {
+            const actions = this.state.dataObject.actions.map((a, i) => {
+                return (
+                    <div>
+                        <div><b>{a.name}:</b></div>
+                        <div>{a.desc}:</div>
+                        <div>Attack Bonus: {a.attack_bonus}</div>
+                        <div>Damage Dice: {a.damage_dice}</div>
+                        <div>Damage Bonus: {a.damage_bonus}</div>
+                    </div>
+                )
+            })
+            return actions
+        }
+    }
+
+    renderLegendaryActions = () => {
+        if(this.state.dataObject.legendary_actions){
+            const legendaryActions = this.state.dataObject.legendary_actions.map((w, i) => {
+                return (
+                    <div>
+                        <div><b>{w.name}</b></div>
+                        <div>{w.desc}</div>
+                        <div><b>Attack Bonus:</b> {w.attack_bonus}</div>
+                        <div><b>Damage Dice:</b> {w.damage_dice}</div>
+                    </div>
+                )
+            })
+            return legendaryActions
+        }
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -36,7 +89,7 @@ class CreatureList extends Component {
     }
 
     renderModel = () => {
-        if (this.state.dataObject)
+        if (this.state.dataObject) {
             return (
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>{this.state.dataObject.name}</ModalHeader>
@@ -44,28 +97,36 @@ class CreatureList extends Component {
                         <div>
                             <div>
                                 <div class='title'>
-                                    <h4><span><b>Size:</b>{this.state.dataObject.size}</span><span><b>Alignment:</b>{this.state.dataObject.alignment}</span></h4>
+                                    <h4><span><b>Size: </b>{this.state.dataObject.size}</span><span> <b>Alignment: </b>{this.state.dataObject.alignment}</span></h4>
                                 </div>
                                 <div>
-                                    <div>Armor Class:{this.state.dataObject.armor_class}</div>
-                                    <div>Hit Points:{this.state.dataObject.hit_points}(Hit dice {this.state.dataObject.hit_dice})</div>
-                                    <div>Speed:{this.state.dataObject.speed}</div>
-                                    <div>Saves:{this.state.dataObject.saves}</div>
+                                    <div><b>Armor Class:</b> {this.state.dataObject.armor_class}</div>
+                                    <div><b>Hit Points:</b> {this.state.dataObject.hit_points}(Hit dice {this.state.dataObject.hit_dice})</div>
+                                    <div><b>Speed:</b> {this.state.dataObject.speed}</div>
+                                    <div><b>Saves:</b> {this.state.dataObject.saves}</div>
                                 </div>
                                 <div class='formBox'>
                                     <div>STR:{this.state.dataObject.strength}</div><div>DEX:{this.state.dataObject.dexterity}</div><div>CON:{this.state.dataObject.constitution}</div><div>INT:{this.state.dataObject.intelligence}</div><div>WIS:{this.state.dataObject.wisdom}</div><div>CHA:{this.state.dataObject.charisma}</div>
                                 </div>
                                 <div class='skillsBox'>
-                                    <div>Skills:{this.state.dataObject.skills}</div>
-                                    <div>Senses:{this.state.dataObject.senses}</div>
-                                    <div>Languages:{this.state.dataObject.languages}</div>
-                                    <div>Challenge:{this.state.dataObject.challenge_rating}</div>
+                                    <div><b>Skills:</b> {this.state.dataObject.skills}</div>
+                                    <div><b>Senses:</b> {this.state.dataObject.senses}</div>
+                                    <div><b>Languages:</b> {this.state.dataObject.languages}</div>
+                                    <div><b>Challenge:</b> {this.state.dataObject.challenge_rating}</div>
                                 </div>
-                                <div>{this.state.dataObject.name}</div>
+                                <h3>Special Abilities</h3>
+                                <div>{this.renderSpecialAbilities()}
+                                </div>
                                 <div>
                                     <h3>Actions</h3>
                                     <div>
-                                        {this.state.dataObject.name}
+                                        {this.renderActions()}
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>Legendary Actions</h3>
+                                    <div>
+                                        {this.renderLegendaryActions()}
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +137,12 @@ class CreatureList extends Component {
                         <Button color="secondary" onClick={this.toggle}>Done</Button>
                     </ModalFooter>
                 </Modal>
+
             )
+        }
+        else {
+            return
+        }
     }
 
     render() {
