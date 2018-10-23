@@ -7,6 +7,12 @@ import Encounter from "./Encounter"
 import NavBar from './NavBar'
 
 class App extends Component {
+addCreature = () => {
+  
+}
+
+
+  
   render() {
     return (
       <div>
