@@ -6,6 +6,8 @@ import { Table } from 'reactstrap'
 
 class CreatureList extends Component {
 
+
+
     renderSpecialAbilities = () => {
         if (this.state.dataObject.special_abilities) {
             const specialAbilities = this.state.dataObject.special_abilities.map((f, i) => {
@@ -87,31 +89,39 @@ class CreatureList extends Component {
 
     }
 
-    // renderAddCreature = () => {
+//    handleClick(event) {
+//        this.setState(this.state =>({
+//            name: this.state.dataObject.name;
+//            challenge_rating: this.state.dataObject.challenge_rating
 
-    //     return(
-    //     <Table dark>
-    //     <thead>
-    //         <tr>
-    //             <th>#</th>
-    //             <th>Creature Name</th>
-    //             <th>Challenge Rating</th>
-                
-    //         </tr>
-    //     </thead>
-    //     <tbody>
-    //         <tr>
-    //             <th scope="row">1</th>
-    //             <td>{this.state.dataObject.modal.name}</td>
-    //             <td>{this.state.dataObject.modal.challenge_rating}</td>
-               
-    //         </tr>
+//        }))
+//    }
+
+encounterList = async (CreatureList) => {
+    try { 
+        const response = await fetch(`renderModel`, {
+            method: 'POST',
+            body: JSON.stringify(content)
+            
+        })
         
-    //     </tbody>
-    // </Table>
-    //     )
-    // }
+        const result = await response.json()
+        if (result.isJoi) {
+            throw result
+        }
 
+        this.setState.dataObject({
+            name:'',
+            challenge_rating:''
+        })
+     await this.
+
+
+        
+    }
+}
+
+  
 renderModel = () => {
     if (this.state.dataObject) {
         return (
