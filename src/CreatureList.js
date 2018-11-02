@@ -97,29 +97,22 @@ class CreatureList extends Component {
 //        }))
 //    }
 
-encounterList = async (CreatureList) => {
-    try { 
-        const response = await fetch(`renderModel`, {
-            method: 'POST',
-            body: JSON.stringify(content)
-            
-        })
-        
-        const result = await response.json()
-        if (result.isJoi) {
-            throw result
-        }
-
-        this.setState.dataObject({
-            name:'',
-            challenge_rating:''
-        })
-     await this.
+// createEncounterList = async(encounterToSave) => {
+//     const r = await fetch('url/encounterList', {
+//         method:'POST',
+//         body: JSON.stringify(encounterToSave)
+//     })
+//     const r = await r.json()
+    
+// }
+    
 
 
-        
-    }
-}
+
+
+
+
+
 
   
 renderModel = () => {
