@@ -14,6 +14,11 @@ class Encounter extends Component {
 
     }
 
+    handleBuildTable = (event) => {
+        // this is where ill be pulling in the data to build the table out of the encounter
+        
+    }
+
   
     render() {
         return (
