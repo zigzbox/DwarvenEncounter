@@ -180,7 +180,7 @@ render() {
             {this.renderCreatureName()}
             {this.renderModel()}
             
-
+<footer>this is where the footer is</footer>
         </div>
 
 
