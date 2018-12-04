@@ -114,7 +114,7 @@ class CreatureList extends Component {
 
 
 
-  
+  //need to figure out how to limit how many things display on the page...
 renderModel = () => {
     if (this.state.dataObject) {
         return (
